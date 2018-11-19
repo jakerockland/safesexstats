@@ -1,9 +1,18 @@
 {
   "name": "safesexstats",
+  "description": "A simple web app for making the statistics behind safe sex easier to understand.",
+  "homepage": "https://github.com/jakerockland/safesexstats",
+  "author": {
+    "name": "Jake Rockland",
+    "email": "jakerockland@gmail.com",
+    "url": "https://jakerockland.com"
+  },
+  "license": "MIT",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "react": "^16.6.3",
+    "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1"
   },

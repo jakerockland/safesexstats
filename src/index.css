@@ -1,14 +1,15 @@
+@import url("https://rsms.me/inter/inter-ui.css");
+
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: InterUI, "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
+.color-primary      { color: #AA3939 }  /* Primary */
+.color-light        { color: #FFAAAA }  /* Light */
+.color-medium-light { color: #D46A6A } /* Medium-light */
+.color-medium-dark  { color: #801515 } /* Medium-dark */
+.color-dark         { color: #550000 } /* Dark */
