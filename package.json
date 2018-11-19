@@ -1,7 +1,7 @@
 {
   "name": "safesexstats",
   "description": "A simple web app for making the statistics behind safe sex easier to understand.",
-  "homepage": "https://github.com/jakerockland/safesexstats",
+  "homepage": "https://jakerockland.github.io/safesexstats",
   "author": {
     "name": "Jake Rockland",
     "email": "jakerockland@gmail.com",
@@ -11,6 +11,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "gh-pages": "^2.0.1",
     "react": "^16.6.3",
     "react-bootstrap": "^0.32.4",
     "react-dom": "^16.6.3",
@@ -20,7 +21,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
