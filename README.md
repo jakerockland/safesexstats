@@ -1,4 +1,8 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SafeSexStats
+
+Planned Parenthood is a great resource for learning about different types of contraceptives and how to 👏 have 👏 sex 👏 safely 👏. However, as a fan of the Navy SEAL saying "two is one and one is none", I wanted an easy way to understand the combined effectiveness of multiple contraceptives in preventing pregnancy, so I built SafeSexStats.
+
+*This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
 
 ## Available Scripts
 
