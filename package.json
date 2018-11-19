@@ -7,7 +7,7 @@
     "email": "jakerockland@gmail.com",
     "url": "https://jakerockland.com"
   },
-  "license": "MIT",
+  "license": "MIT License",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
