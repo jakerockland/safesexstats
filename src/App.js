@@ -1,150 +1,62 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
-import './App.css';
 
+import Logo from './components/Logo';
+import Link from './components/Link';
+import OneMethodHeader from './components/OneMethodHeader';
+import TwoMethodHeader from './components/TwoMethodHeader';
+import YourOdds from './components/YourOdds';
 
-function AppLink(props) {
-  return (
-    <a
-      className="App-link"
-      href={props.link}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {props.title}
-    </a>
-  );
-}
-
-
-function OneMethodHeader(props) {
-  return (
-    <h2>My partner and I use {AppLink(props)}...</h2>
-  )
-}
-
-
-function TwoMethodHeader(props) {
-  const propsA = {
-    title: props.titleA,
-    link: props.linkA
-  };
-
-  const propsB = {
-    title: props.titleB,
-    link: props.linkB
-  };
-
-  return (
-    <h2>My partner and I use {AppLink(propsA)} or {AppLink(propsB)}...</h2>
-  )
-}
-
-
-function setOddsState(state) {
-  this.setState(state);
-}
-
-
-class YourOdds extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      condomUsage: this.props.condomUsage,
-      condomFrequency: this.props.condomFrequency,
-      pillUsage: this.props.pillUsage,
-      pillFrequency: this.props.pillFrequency,
-      iudImplant: this.props.iudImplant,
-      ringUsage: this.props.ringUsage,
-      ringFrequency: this.props.ringFrequency,
-      shotUsage: this.props.shotUsage,
-      shotFrequency: this.props.shotFrequency,
-      pullOutUsage: this.props.pullOutUsage,
-      pullOutFrequency: this.props.pullOutFrequency,
-      spermicideUsage: this.props.spermicideUsage,
-      spermicideFrequency: this.props.spermicideFrequency
-    }
-
-    // TODO: Assigning a function here is bad practice
-    // TODO: However, I believe resolving will require a handful of refactoring
-    // eslint-disable-next-line
-    setOddsState = setOddsState.bind(this);
+      condomUsage: 85,
+      condomFrequency: 0,
+      pillUsage: 91,
+      pillFrequency: 0,
+      iudImplant: 0,
+      ringUsage: 91,
+      ringFrequency: 0,
+      shotUsage: 94,
+      shotFrequency: 0,
+      pullOutUsage: 78,
+      pullOutFrequency: 0,
+      spermicideUsage: 72,
+      spermicideFrequency: 0
+    };
   }
 
   render() {
-    const condom = (this.state.condomUsage / 100) * (this.state.condomFrequency  / 100);
-    const pill = (this.state.pillUsage / 100) * (this.state.pillFrequency / 100);
-    const iudImplant = this.state.iudImplant / 100;
-    const ring = (this.state.ringUsage / 100) * (this.state.ringFrequency / 100);
-    const shot = (this.state.shotUsage / 100) * (this.state.shotFrequency / 100);
-    const pullOut = (this.state.pullOutUsage / 100) * (this.state.pullOutFrequency / 100);
-    const spermicide = (this.state.spermicideUsage / 100) * (this.state.spermicideFrequency / 100);
-
-    const methods = [
-      condom,
-      pill,
-      iudImplant,
-      ring,
-      shot,
-      pullOut,
-      spermicide
-    ];
-
-    const nonEffectiveProbabilities = methods.map(x => 1 - x);
-    const reducedProbability = nonEffectiveProbabilities.reduce((x,y) => x * y);
-    const effectiveOdds = (1 - reducedProbability) * 100;
-
-    const percentOdds = effectiveOdds.toFixed(1);
-    const numberedOdds = Math.round(1 / ((100 - effectiveOdds) / 100) - 1);
-
-    if (numberedOdds === 0) {
-      if (percentOdds === "0.0") {
-        return (
-          <h2><span className="color-medium-dark">Uh oh.</span> You're not protected at all, hopefully that is on purpose!</h2>
-        )
-      }
-
-      return (
-        <span>
-          <h2><span className="color-medium-dark">Uh oh.</span> You're barely protected at all (only <span className="color-medium-dark">{percentOdds}%</span>).</h2>
-          <h2>hopefully that is on purpose!</h2>
-        </span>
-      )
-    }
-
     return (
-      <span>
-        <h2>Your contraceptive use should be about <span className="color-medium-dark">{percentOdds}%</span> effective!</h2>
-        <h2>That means your chances of getting pregnant are roughly <span className="color-medium-dark">1 in {numberedOdds}</span>.</h2>
-      </span>
-    );
-  }
-}
+      <Fragment>
+        <header className="content-wrapper">
+          <Logo/>
 
-
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-logo">
-            <span className="color-light">Safe</span><span className="color-medium-light">Sex</span><span className="color-light">Stats</span>
-          </h1>
           <br/>
+
           <p>
-            <AppLink title="Planned Parenthood" link="https://www.plannedparenthood.org/learn/birth-control"/> is a great resource for learning about different types of contraceptives and how to 👏 have 👏 sex 👏 safely 👏. However, as a fan of the Navy SEAL saying "two is one and one is none", I wanted an easy way to understand the combined effectiveness of multiple contraceptives in preventing pregnancy, so I built <strong><span className="color-light">Safe</span><span className="color-medium-light">Sex</span><span className="color-light">Stats</span></strong>.
+            <Link title="Planned Parenthood" link="https://www.plannedparenthood.org/learn/birth-control"/> is a great resource for learning about different types of contraceptives and how to 👏 have 👏 sex 👏 safely 👏.
           </p>
+
           <br/>
+
           <p>
-            Please note that this website only helps better understand the effectiveness of different contraceptives at preventing pregnancy, but <em>not</em> at preventing the contraction of sexually transmitted diseases.
+            However, I'm a fan of the saying "two is one and one is none" and wanted an easy way to understand the combined effectiveness of multiple contraceptives in preventing pregnancy, so I built <strong><span className="color-light">Safe</span><span className="color-medium-light">Sex</span><span className="color-light">Stats</span></strong>.
+          </p>
+
+          <br/>
+
+          <p>
+            Please note that this website only helps better understand the effectiveness of different contraceptives at preventing pregnancy, but <strong>not</strong> at preventing the contraction of sexually transmitted diseases.
           </p>
         </header>
 
-        <div className="App-content">
+        <div className="content-wrapper">
           <h1 className="color-dark">Your Protection</h1>
 
-          <div className="App-input-section" name="condoms">
+          <div className="button-section" name="condoms">
             <OneMethodHeader
               title="condoms"
               link="https://www.plannedparenthood.org/learn/birth-control/condom"
@@ -152,7 +64,7 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="condom-frequency" defaultValue={0}
-              onChange={(e) => setOddsState({condomFrequency: e})}
+              onChange={(val) => this.setState({condomFrequency: val})}
               justified>
               <ToggleButton value={0}>Never</ToggleButton>
               <ToggleButton value={25}>1/4 of the Time</ToggleButton>
@@ -163,7 +75,7 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="condom-usage" defaultValue={85}
-              onChange={(e) => setOddsState({condomUsage: e})}
+              onChange={(val) => this.setState({condomUsage: val})}
               justified>
               <ToggleButton value={85}>As well as anyone else</ToggleButton>
               <ToggleButton value={98}>Perfectly</ToggleButton>
@@ -172,7 +84,7 @@ class App extends Component {
 
           <br/>
 
-          <div className="App-input-section" name="pill">
+          <div className="button-section" name="pill">
             <OneMethodHeader
               title="the birth control pill"
               link="https://www.plannedparenthood.org/learn/birth-control/birth-control-pill"
@@ -180,7 +92,7 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="pill-frequency" defaultValue={0}
-              onChange={(e) => setOddsState({pillFrequency: e})}
+              onChange={(val) => this.setState({pillFrequency: val})}
               justified>
               <ToggleButton value={0}>Nay</ToggleButton>
               <ToggleButton value={100}>Yay</ToggleButton>
@@ -188,14 +100,14 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="pill-usage" defaultValue={91}
-              onChange={(e) => setOddsState({pillUsage: e})}
+              onChange={(val) => this.setState({pillUsage: val})}
               justified>
               <ToggleButton value={91}>As well as anyone else</ToggleButton>
               <ToggleButton value={99}>Perfectly</ToggleButton>
             </ToggleButtonGroup>
           </div>
 
-          <div className="App-input-section" name="iud-implant">
+          <div className="button-section" name="iud-implant">
             <TwoMethodHeader
               titleA="an IUD"
               linkA="https://www.plannedparenthood.org/learn/birth-control/iud"
@@ -205,14 +117,14 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="iud-implant" defaultValue={0}
-              onChange={(e) => setOddsState({iudImplant: e})}
+              onChange={(val) => this.setState({iudImplant: val})}
               justified>
               <ToggleButton value={0}>Nay</ToggleButton>
               <ToggleButton value={99}>Yay</ToggleButton>
             </ToggleButtonGroup>
           </div>
 
-          <div className="App-input-section" name="ring">
+          <div className="button-section" name="ring">
             <OneMethodHeader
               title="the birth control ring"
               link="https://www.plannedparenthood.org/learn/birth-control/birth-control-vaginal-ring-nuvaring"
@@ -220,7 +132,7 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="ring-frequency" defaultValue={0}
-              onChange={(e) => setOddsState({ringFrequency: e})}
+              onChange={(val) => this.setState({ringFrequency: val})}
               justified>
               <ToggleButton value={0}>Nay</ToggleButton>
               <ToggleButton value={100}>Yay</ToggleButton>
@@ -228,14 +140,14 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="ring-usage" defaultValue={91}
-              onChange={(e) => setOddsState({ringUsage: e})}
+              onChange={(val) => this.setState({ringUsage: val})}
               justified>
               <ToggleButton value={91}>As well as anyone else</ToggleButton>
               <ToggleButton value={99}>Perfectly</ToggleButton>
             </ToggleButtonGroup>
           </div>
 
-          <div className="App-input-section" name="shot">
+          <div className="button-section" name="shot">
             <OneMethodHeader
               title="the birth control shot"
               link="https://www.plannedparenthood.org/learn/birth-control/birth-control-shot"
@@ -243,7 +155,7 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="shot-frequency" defaultValue={0}
-              onChange={(e) => setOddsState({shotFrequency: e})}
+              onChange={(val) => this.setState({shotFrequency: val})}
               justified>
               <ToggleButton value={0}>Nay</ToggleButton>
               <ToggleButton value={100}>Yay</ToggleButton>
@@ -251,7 +163,7 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="shot-usage" defaultValue={94}
-              onChange={(e) => setOddsState({shotUsage: e})}
+              onChange={(val) => this.setState({shotUsage: val})}
               justified>
               <ToggleButton value={94}>As well as anyone else</ToggleButton>
               <ToggleButton value={99}>Perfectly</ToggleButton>
@@ -260,7 +172,7 @@ class App extends Component {
 
           <br/>
 
-          <div className="App-input-section" name="pull-out">
+          <div className="button-section" name="pull-out">
             <OneMethodHeader
               title="the pull out method"
               link="https://www.plannedparenthood.org/learn/birth-control/withdrawal-pull-out-method"
@@ -268,7 +180,7 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="pull-out-frequency" defaultValue={0}
-              onChange={(e) => setOddsState({pullOutFrequency: e})}
+              onChange={(val) => this.setState({pullOutFrequency: val})}
               justified>
               <ToggleButton value={0}>Never</ToggleButton>
               <ToggleButton value={25}>1/4 of the Time</ToggleButton>
@@ -279,7 +191,7 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="pull-out-usage" defaultValue={78}
-              onChange={(e) => setOddsState({pullOutUsage: e})}
+              onChange={(val) => this.setState({pullOutUsage: val})}
               justified>
               <ToggleButton value={78}>As well as anyone else</ToggleButton>
               <ToggleButton value={94}>Perfectly</ToggleButton>
@@ -288,7 +200,7 @@ class App extends Component {
 
           <br/>
 
-          <div className="App-input-section" name="spermicide">
+          <div className="button-section" name="spermicide">
             <OneMethodHeader
               title="spermicide"
               link="https://www.plannedparenthood.org/learn/birth-control/spermicide"
@@ -296,7 +208,7 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="spermicide-frequency" defaultValue={0}
-              onChange={(e) => setOddsState({spermicideFrequency: e})}
+              onChange={(val) => this.setState({spermicideFrequency: val})}
               justified>
               <ToggleButton value={0}>Never</ToggleButton>
               <ToggleButton value={25}>1/4 of the Time</ToggleButton>
@@ -307,7 +219,7 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" bsSize="large"
               name="spermicide-usage" defaultValue={72}
-              onChange={(e) => setOddsState({spermicideUsage: e})}
+              onChange={(val) => this.setState({spermicideUsage: val})}
               justified>
               <ToggleButton value={72}>As well as anyone else</ToggleButton>
               <ToggleButton value={82}>Perfectly</ToggleButton>
@@ -315,42 +227,44 @@ class App extends Component {
           </div>
         </div>
 
-        <div className="App-content">
+        <div className="content-wrapper">
           <h1 className="color-dark">Your Odds</h1>
           <YourOdds
-            condomUsage={85}
-            condomFrequency={0}
-            pillUsage={91}
-            pillFrequency={0}
-            iudImplant={0}
-            ringUsage={91}
-            ringFrequency={0}
-            shotUsage={94}
-            shotFrequency={0}
-            pullOutUsage={78}
-            pullOutFrequency={0}
-            spermicideUsage={72}
-            spermicideFrequency={0}
+            condomUsage={ this.state.condomUsage }
+            condomFrequency={ this.state.condomFrequency }
+            pillUsage={ this.state.pillUsage }
+            pillFrequency={ this.state.pillFrequency }
+            iudImplant={ this.state.iudImplant }
+            ringUsage={ this.state.ringUsage }
+            ringFrequency={ this.state.ringFrequency }
+            shotUsage={ this.state.shotUsage }
+            shotFrequency={ this.state.shotFrequency }
+            pullOutUsage={ this.state.pullOutUsage }
+            pullOutFrequency={ this.state.pullOutFrequency }
+            spermicideUsage={ this.state.spermicideUsage }
+            spermicideFrequency={ this.state.spermicideFrequency }
           />
         </div>
 
-        <div className="App-content">
+        <div className="content-wrapper">
           <h1 className="color-dark">Want More?</h1>
           <p>
-            For a better understanding of the statistics at work behind this calculator, check out this great <AppLink title="Scarleteen article" link="http://www.scarleteen.com/article/sexual_health/the_buddy_system_effectiveness_rates_for_backing_up_your_birth_control_with_a_"/> or this <AppLink title="Khan Academy lesson" link="https://www.khanacademy.org/math/ap-statistics/probability-ap/probability-multiplication-rule/v/compound-probability-of-independent-events"/> on compound probabilities.
+            For a better understanding of the statistics at work behind this calculator, check out this great <Link title="Scarleteen article" link="http://www.scarleteen.com/article/sexual_health/the_buddy_system_effectiveness_rates_for_backing_up_your_birth_control_with_a_"/> or this <Link title="Khan Academy lesson" link="https://www.khanacademy.org/math/ap-statistics/probability-ap/probability-multiplication-rule/v/compound-probability-of-independent-events"/> on compound probabilities.
           </p>
           <br/>
           <p>
-            Do you use a <AppLink title="birth control method" link="https://www.plannedparenthood.org/learn/birth-control"/> that I haven't included here and would like to see it on the site? Shoot me <AppLink title="an email" link="mailto:hello@safesexstats.com"/> or open <AppLink title="an issue" link="https://github.com/jakerockland/safesexstats/issues"/> on Github.
+            Do you use a <Link title="birth control method" link="https://www.plannedparenthood.org/learn/birth-control"/> that I haven't included here and would like to see it on the site? Hit me up on <Link title="Twitter" link="https://twitter.com/jakerockland"/> or open <Link title="an issue" link="https://github.com/jakerockland/safesexstats/issues"/> on Github.
           </p>
         </div>
 
-        <footer className="App-footer">
+
+        <footer className="content-wrapper">
           <p>
-            Made with <span className="color-medium-dark">♥</span> in Denver.
+            Made by <Link link="https://jakerockland.com" title="Jake" /> with <span className="color-medium-dark">♥</span> in Denver.
           </p>
         </footer>
-      </div>
+
+      </Fragment>
     );
   }
 }

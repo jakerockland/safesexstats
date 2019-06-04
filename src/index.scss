@@ -1,0 +1,53 @@
+@import url("https://rsms.me/inter/inter-ui.css");
+@import './styles/constants.scss';
+
+body {
+  margin: 0;
+  padding: 0;
+
+  font-family: InterUI, "Helvetica Neue", sans-serif;
+  text-align: center;
+
+  background-color: $primary;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.color-primary      { color: $primary } /* Primary */
+.color-light        { color: $light } /* Light */
+.color-medium-light { color: $medium-light } /* Medium-light */
+.color-medium-dark  { color: $medium-dark } /* Medium-dark */
+.color-dark         { color: $dark } /* Dark */
+
+.content-wrapper {
+  padding: 50px 150px;
+
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $primary;
+
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.link:link, .link:visited {
+  color: $light;
+}
+
+.link:hover, .link:active {
+  color: $medium-dark;
+}
+
+.button-section {
+  max-width: 75vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  font-weight: bolder;
+  font-size: calc(40px + 2vmin);
+}
