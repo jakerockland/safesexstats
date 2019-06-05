@@ -282,7 +282,7 @@ class App extends Component {
 
           <Row className="p-1">
             <p>
-              For a better understanding of the statistics at work behind this calculator, check out this great <Link title="Scarleteen article" link="http://www.scarleteen.com/article/sexual_health/the_buddy_system_effectiveness_rates_for_backing_up_your_birth_control_with_a_"/> or this <Link title="Khan Academy lesson" link="https://www.khanacademy.org/math/ap-statistics/probability-ap/probability-multiplication-rule/v/compound-probability-of-independent-events"/> on compound probabilities.
+              For a better understanding of the statistics at work behind this calculator, check out this great <Link title="Scarleteen article" link="https://www.scarleteen.com/article/sexual_health/the_buddy_system_effectiveness_rates_for_backing_up_your_birth_control_with_a_"/> or this <Link title="Khan Academy lesson" link="https://www.khanacademy.org/math/ap-statistics/probability-ap/probability-multiplication-rule/v/compound-probability-of-independent-events"/> on compound probabilities.
             </p>
           </Row>
 
