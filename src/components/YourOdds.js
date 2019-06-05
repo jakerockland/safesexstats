@@ -27,6 +27,7 @@ export default class YourOdds extends Component {
 
     const percentOdds = effectiveOdds.toFixed(1);
     const numberedOdds = Math.round(1 / ((100 - effectiveOdds) / 100) - 1);
+    console.log(1 - (percentOdds/100))
 
     if (numberedOdds === 0) {
       if (percentOdds === "0.0") {
