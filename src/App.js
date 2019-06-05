@@ -38,7 +38,7 @@ class App extends Component {
     return (
       <div className="px-5">
 
-        <header className="content-wrapper p-5 container-fluid">
+        <header className="content-wrapper p-5 mt-5 container-fluid">
           <Logo className="p-3" />
 
           <Row className="p-1">
