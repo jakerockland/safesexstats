@@ -4,7 +4,6 @@ import ToggleButtonGroup from 'react-bootstrap/ToggleButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 
 import Logo from './components/Logo';
 import Link from './components/Link';
@@ -78,21 +77,21 @@ class App extends Component {
                 type="radio" as={Row} className="py-1" style={{width: "100%"}}
                 name="condom-frequency" defaultValue={0}
                 onChange={(val) => this.setState({condomFrequency: val})}>
-                <ToggleButton variant="outline-dark" size="lg" value={0}>
+                <ToggleButton variant={variant} size="lg" value={0}>
                   Never
                 </ToggleButton>
-                <ToggleButton variant="outline-dark" size="lg" value={25}>1/4 of the time</ToggleButton>
-                <ToggleButton variant="outline-dark" size="lg" value={50}>Half of the time</ToggleButton>
-                <ToggleButton variant="outline-dark" size="lg" value={75}>3/4 of the time</ToggleButton>
-                <ToggleButton variant="outline-dark" size="lg" value={100}>Every time</ToggleButton>
+                <ToggleButton variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
+                <ToggleButton variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
+                <ToggleButton variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
+                <ToggleButton variant={variant} size="lg" value={100}>Every time</ToggleButton>
               </ToggleButtonGroup>
 
               <ToggleButtonGroup
                 type="radio" as={Row} className="py-1" style={{width: "100%"}}
                 name="condom-usage" defaultValue={85}
                 onChange={(val) => this.setState({condomUsage: val})}>
-                <ToggleButton variant="outline-dark" size="lg" value={85}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={98}>Perfectly</ToggleButton>
+                <ToggleButton variant={variant} size="lg" value={85}>As well as anyone else</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={98}>Perfectly</ToggleButton>
               </ToggleButtonGroup>
             </div>
           </Row>
@@ -109,16 +108,16 @@ class App extends Component {
                 type="radio" as={Row} className="py-1" style={{width: "100%"}}
                 name="pill-frequency" defaultValue={0}
                 onChange={(val) => this.setState({pillFrequency: val})}>
-                <ToggleButton  variant="outline-dark" size="lg" value={0}>Nay</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={100}>Yay</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
               </ToggleButtonGroup>
 
               <ToggleButtonGroup
                 type="radio" as={Row} className="py-1" style={{width: "100%"}}
                 name="pill-usage" defaultValue={91}
                 onChange={(val) => this.setState({pillUsage: val})}>
-                <ToggleButton  variant="outline-dark" size="lg" value={91}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={99}>Perfectly</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={91}>As well as anyone else</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
               </ToggleButtonGroup>
             </div>
           </Row>
@@ -136,8 +135,8 @@ class App extends Component {
                 name="iud-implant" defaultValue={0}
                 onChange={(val) => this.setState({iudImplant: val})}
                 >
-                <ToggleButton  variant="outline-dark" size="lg" value={0}>Nay</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={99}>Yay</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={99}>Yay</ToggleButton>
               </ToggleButtonGroup>
             </div>
           </Row>
@@ -153,16 +152,16 @@ class App extends Component {
                 name="ring-frequency" defaultValue={0}
                 onChange={(val) => this.setState({ringFrequency: val})}
                 >
-                <ToggleButton  variant="outline-dark" size="lg" value={0}>Nay</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={100}>Yay</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
               </ToggleButtonGroup>
               <ToggleButtonGroup
                 type="radio" as={Row} className="py-1" style={{width: "100%"}}
                 name="ring-usage" defaultValue={91}
                 onChange={(val) => this.setState({ringUsage: val})}
                 >
-                <ToggleButton  variant="outline-dark" size="lg" value={91}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={99}>Perfectly</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={91}>As well as anyone else</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
               </ToggleButtonGroup>
             </div>
           </Row>
@@ -178,16 +177,16 @@ class App extends Component {
                 name="shot-frequency" defaultValue={0}
                 onChange={(val) => this.setState({shotFrequency: val})}
                 >
-                <ToggleButton  variant="outline-dark" size="lg" value={0}>Nay</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={100}>Yay</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
               </ToggleButtonGroup>
               <ToggleButtonGroup
                 type="radio" as={Row} className="py-1" style={{width: "100%"}}
                 name="shot-usage" defaultValue={94}
                 onChange={(val) => this.setState({shotUsage: val})}
                 >
-                <ToggleButton  variant="outline-dark" size="lg" value={94}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={99}>Perfectly</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={94}>As well as anyone else</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
               </ToggleButtonGroup>
             </div>
           </Row>
@@ -203,19 +202,19 @@ class App extends Component {
                 name="pull-out-frequency" defaultValue={0}
                 onChange={(val) => this.setState({pullOutFrequency: val})}
                 >
-                <ToggleButton  variant="outline-dark" size="lg" value={0}>Never</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={25}>1/4 of the time</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={50}>Half of the time</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={75}>3/4 of the time</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={100}>Every time</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={0}>Never</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={100}>Every time</ToggleButton>
               </ToggleButtonGroup>
               <ToggleButtonGroup
                 type="radio" as={Row} className="py-1" style={{width: "100%"}}
                 name="pull-out-usage" defaultValue={78}
                 onChange={(val) => this.setState({pullOutUsage: val})}
                 >
-                <ToggleButton  variant="outline-dark" size="lg" value={78}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={94}>Perfectly</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={78}>As well as anyone else</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={94}>Perfectly</ToggleButton>
               </ToggleButtonGroup>
             </div>
           </Row>
@@ -231,19 +230,19 @@ class App extends Component {
                 name="spermicide-frequency" defaultValue={0}
                 onChange={(val) => this.setState({spermicideFrequency: val})}
                 >
-                <ToggleButton  variant="outline-dark" size="lg" value={0}>Never</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={25}>1/4 of the time</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={50}>Half of the time</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={75}>3/4 of the time</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={100}>Every time</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={0}>Never</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={100}>Every time</ToggleButton>
               </ToggleButtonGroup>
               <ToggleButtonGroup
                 type="radio" as={Row} className="py-1" style={{width: "100%"}}
                 name="spermicide-usage" defaultValue={72}
                 onChange={(val) => this.setState({spermicideUsage: val})}
                 >
-                <ToggleButton  variant="outline-dark" size="lg" value={72}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant="outline-dark" size="lg" value={82}>Perfectly</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={72}>As well as anyone else</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={82}>Perfectly</ToggleButton>
               </ToggleButtonGroup>
             </div>
           </Row>
