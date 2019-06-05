@@ -1,5 +1,7 @@
 @import url("https://rsms.me/inter/inter-ui.css");
+
 @import './styles/constants.scss';
+@import '~bootstrap/scss/bootstrap.scss';
 
 body {
   margin: 0;
@@ -21,8 +23,6 @@ body {
 .color-dark         { color: $dark } /* Dark */
 
 .content-wrapper {
-  padding: 50px 150px;
-
   flex-direction: column;
   display: flex;
   align-items: center;
@@ -30,21 +30,15 @@ body {
   background-color: $primary;
 
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: $medium-light;
 }
 
 .link:link, .link:visited {
-  color: $light;
+  color: $dark;
 }
 
 .link:hover, .link:active {
-  color: $medium-dark;
-}
-
-.button-section {
-  max-width: 75vw;
-  display: flex;
-  flex-direction: column;
+  color: $light;
 }
 
 .logo {
