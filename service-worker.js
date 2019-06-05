@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/safesexstats/precache-manifest.922bc8254c7006998c6a44f3785584f5.js"
+  "/safesexstats/precache-manifest.e7a4d42c86defd608b9c351b0f27ffe2.js"
 );
 
 self.addEventListener('message', (event) => {

@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b34da4e7a3867826c0141a09ec9e32ad",
+    "revision": "884999f3414ebb4fc97ae8c6d2e7237a",
     "url": "/safesexstats/index.html"
   },
   {
-    "revision": "5d97455a4a6b7b03837b",
+    "revision": "a0295fb59f47b85d5d2b",
     "url": "/safesexstats/static/css/main.049b5a62.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/safesexstats/static/js/2.d5bae39d.chunk.js"
   },
   {
-    "revision": "5d97455a4a6b7b03837b",
-    "url": "/safesexstats/static/js/main.e8439368.chunk.js"
+    "revision": "a0295fb59f47b85d5d2b",
+    "url": "/safesexstats/static/js/main.38cc97c0.chunk.js"
   },
   {
     "revision": "66e88143646918bf6013",
