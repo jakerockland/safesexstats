@@ -1,4 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+
+import Row from 'react-bootstrap/Row';
 
 export default class YourOdds extends Component {
 
@@ -32,7 +34,7 @@ export default class YourOdds extends Component {
     }
   }
 
-  render() {
+  calculateOdds = () => {
     const condom = (this.props.condomUsage / 100) * (this.props.condomFrequency  / 100);
     const pill = (this.props.pillUsage / 100) * (this.props.pillFrequency / 100);
     const iudImplant = this.props.iudImplant / 100;
@@ -58,8 +60,17 @@ export default class YourOdds extends Component {
     const percentOdds = effectiveOdds.toFixed(1);
     const numberedOdds = Math.round(1 / ((100 - effectiveOdds) / 100) - 1);
     const pregnancyOdds = (100 - effectiveOdds) / 100
-
     const fraction = this.calulateFraction(pregnancyOdds);
+
+    return {
+      percentOdds: percentOdds,
+      numberedOdds: numberedOdds,
+      fraction: fraction,
+    }
+  }
+
+  renderOdds() {
+    const { percentOdds, numberedOdds, fraction } = this.calculateOdds();
 
     if (numberedOdds === 0) {
       if (percentOdds === "0.0") {
@@ -88,5 +99,23 @@ export default class YourOdds extends Component {
         <h2>That means your chances of getting pregnant are roughly <span className="color-medium-dark">{fraction.numerator} in {fraction.denominator}</span>.</h2>
       </span>
     );
+  }
+
+  render() {
+    const { fraction } = this.calculateOdds();
+
+    return <Fragment>
+      <Row className="p-1">
+        { this.renderOdds() }
+      </Row>
+
+      <Row className="p-3" id="social-sharing">
+        <a href={`https://twitter.com/home?status=My%20pregnancy%20odds%20are%20${fraction.numerator}%20in%20${fraction.denominator}!%20What're%20yours?%0A%0Ahttps%3A//jakerockland.com/safesexstats%0A%0A%23plannedparenthood%20%23safesex`}
+         className="mx-2 btn btn-outline-dark btn-lg"><i class="fab fa-twitter"></i> Share on Twitter </a>
+
+         <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//jakerockland.com/safesexstats"
+            className="mx-2 btn btn-outline-dark btn-lg"><i class="fab fa-facebook"></i> Share on Facebook</a>
+      </Row>
+    </Fragment>
   }
 }

@@ -255,23 +255,21 @@ class App extends Component {
             <h1 className="color-dark">Your Odds</h1>
           </Row>
 
-          <Row className="p-1">
-            <YourOdds
-              condomUsage={ this.state.condomUsage }
-              condomFrequency={ this.state.condomFrequency }
-              pillUsage={ this.state.pillUsage }
-              pillFrequency={ this.state.pillFrequency }
-              iudImplant={ this.state.iudImplant }
-              ringUsage={ this.state.ringUsage }
-              ringFrequency={ this.state.ringFrequency }
-              shotUsage={ this.state.shotUsage }
-              shotFrequency={ this.state.shotFrequency }
-              pullOutUsage={ this.state.pullOutUsage }
-              pullOutFrequency={ this.state.pullOutFrequency }
-              spermicideUsage={ this.state.spermicideUsage }
-              spermicideFrequency={ this.state.spermicideFrequency }
-            />
-          </Row>
+          <YourOdds
+            condomUsage={ this.state.condomUsage }
+            condomFrequency={ this.state.condomFrequency }
+            pillUsage={ this.state.pillUsage }
+            pillFrequency={ this.state.pillFrequency }
+            iudImplant={ this.state.iudImplant }
+            ringUsage={ this.state.ringUsage }
+            ringFrequency={ this.state.ringFrequency }
+            shotUsage={ this.state.shotUsage }
+            shotFrequency={ this.state.shotFrequency }
+            pullOutUsage={ this.state.pullOutUsage }
+            pullOutFrequency={ this.state.pullOutFrequency }
+            spermicideUsage={ this.state.spermicideUsage }
+            spermicideFrequency={ this.state.spermicideFrequency }
+          />
         </div>
 
 
