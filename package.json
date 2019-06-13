@@ -1,11 +1,11 @@
 {
   "name": "safesexstats",
   "description": "A simple web app for making the statistics behind safe sex easier to understand.",
-  "homepage": "https://jakerockland.github.io/safesexstats",
+  "homepage": "https://safesexstats.com",
   "author": {
     "name": "Jake Rockland",
     "email": "jakerockland@gmail.com",
-    "url": "https://jakerockland.com"
+    "url": "https://safesexstats.com"
   },
   "license": "MIT License",
   "version": "0.1.0",
