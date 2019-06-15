@@ -75,14 +75,17 @@ export default class YourOdds extends Component {
     if (numberedOdds === 0) {
       if (percentOdds === "0.0") {
         return (
-          <h2><span className="color-medium-dark">Uh oh.</span> You're not protected at all, hopefully that is on purpose!</h2>
+          <span>
+            <h2>You're not protected at all.</h2>
+            <h2>If you're looking to have a baby soon, you're on the right track!</h2>
+          </span>
         )
       }
 
       return (
         <span>
-          <h2><span className="color-medium-dark">Uh oh.</span> You're barely protected at all (only <span className="color-medium-dark">{percentOdds}%</span>).</h2>
-          <h2>Hopefully that is on purpose!</h2>
+          <h2>You're barely protected at all (only <span className="color-medium-dark">{percentOdds}%</span>).</h2>
+            <h2>If you're looking to have a baby soon, you're on the right track!</h2>
         </span>
       )
     }
@@ -96,7 +99,7 @@ export default class YourOdds extends Component {
     return (
       <span>
         <h2>Your contraceptive use should be about <span className="color-medium-dark">{percentOdds}%</span> effective!</h2>
-        <h2>That means your chances of getting pregnant are roughly <span className="color-medium-dark">{fraction.numerator} in {fraction.denominator}</span>.</h2>
+        <h2>That means about <span className="color-medium-dark">{fraction.numerator} in every {fraction.denominator}</span> people using your method(s) will get get pregnant each year.</h2>
       </span>
     );
   }
