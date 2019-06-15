@@ -42,6 +42,7 @@ export default class YourOdds extends Component {
     const shot = (this.props.shotUsage / 100) * (this.props.shotFrequency / 100);
     const pullOut = (this.props.pullOutUsage / 100) * (this.props.pullOutFrequency / 100);
     const spermicide = (this.props.spermicideUsage / 100) * (this.props.spermicideFrequency / 100);
+    const famMethods = this.props.famMethods / 100;
 
     const methods = [
       condom,
@@ -50,7 +51,8 @@ export default class YourOdds extends Component {
       ring,
       shot,
       pullOut,
-      spermicide
+      spermicide,
+      famMethods,
     ];
 
     const nonEffectiveProbabilities = methods.map(x => 1 - x);

@@ -28,7 +28,8 @@ class App extends Component {
       pullOutUsage: 78,
       pullOutFrequency: 0,
       spermicideUsage: 72,
-      spermicideFrequency: 0
+      spermicideFrequency: 0,
+      famMethods: 0,
     };
   }
 
@@ -247,6 +248,23 @@ class App extends Component {
             </div>
           </Row>
 
+          <Row className="p-3" style={{width: "100%"}}>
+            <div className="button-section" style={{width: "100%"}} name="fam-methods">
+              <OneMethodHeader
+                title="fertility awareness methods (FAMs)"
+                link="https://www.plannedparenthood.org/learn/birth-control/fertility-awareness"
+              />
+              <ToggleButtonGroup
+                type="radio" as={Row} className="py-1" style={{width: "100%"}}
+                name="fam-methods" defaultValue={0}
+                onChange={(val) => this.setState({famMethods: val})}
+                >
+                <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
+                <ToggleButton  variant={variant} size="lg" value={76}>Yay</ToggleButton>
+              </ToggleButtonGroup>
+            </div>
+          </Row>
+
         </Container>
 
 
@@ -269,6 +287,7 @@ class App extends Component {
             pullOutFrequency={ this.state.pullOutFrequency }
             spermicideUsage={ this.state.spermicideUsage }
             spermicideFrequency={ this.state.spermicideFrequency }
+            famMethods={ this.state.famMethods }
           />
         </div>
 
