@@ -44,19 +44,13 @@ class App extends Component {
 
           <Row className="p-1">
             <p>
-              <Link title="Planned Parenthood" link="https://www.plannedparenthood.org/learn/birth-control"/> is a great resource for learning about different types of contraceptives and how to 👏 have 👏 sex 👏 safely 👏.
+              <strong><span className="color-dark">Safe</span><span className="color-medium-light">Sex</span><span className="color-dark">Stats</span></strong> makes understanding contraceptive effectiveness easy, by allowing you to understand the combined probabilities of different contraceptive methods, without needing to dive into the math.
             </p>
           </Row>
 
           <Row className="p-1">
             <p>
-              However, I'm a fan of the saying "two is one and one is none" and wanted an easy way to understand the combined effectiveness of multiple contraceptives in preventing pregnancy, so I built <strong><span className="color-dark">Safe</span><span className="color-medium-light">Sex</span><span className="color-dark">Stats</span></strong>.
-            </p>
-          </Row>
-
-          <Row className="p-1">
-            <p>
-              Please note that this website only helps better understand the effectiveness of different contraceptives at preventing pregnancy, but <strong>not</strong> at preventing the contraction of sexually transmitted diseases.
+              Want to know what your odds of pregnancy are? Answer the few questions below!
             </p>
           </Row>
         </header>
@@ -299,6 +293,31 @@ class App extends Component {
             spermicideFrequency={ this.state.spermicideFrequency }
             famMethods={ this.state.famMethods }
           />
+        </div>
+
+
+        <div className="content-wrapper p-5 container-fluid">
+          <Row className="pb-2">
+            <h1 className="color-dark">Why <strong><span className="color-dark">Safe</span><span className="color-medium-light">Sex</span><span className="color-dark">Stats</span></strong>?</h1>
+          </Row>
+
+          <Row className="p-1">
+            <p>
+              <Link title="Planned Parenthood" link="https://www.plannedparenthood.org/learn/birth-control"/> is a great resource for learning about different types of contraceptives and how to 👏 have 👏 sex 👏 safely 👏.
+            </p>
+          </Row>
+
+          <Row className="p-1">
+            <p>
+              However, I'm a fan of the saying "two is one and one is none" and wanted an easy way to understand the combined effectiveness of multiple contraceptives in preventing pregnancy, so I built <strong><span className="color-dark">Safe</span><span className="color-medium-light">Sex</span><span className="color-dark">Stats</span></strong>.
+            </p>
+          </Row>
+
+          <Row className="p-1">
+            <p>
+              Please note that this website only helps better understand the effectiveness of different contraceptives at preventing pregnancy, but <strong>not</strong> at preventing the contraction of sexually transmitted diseases.
+            </p>
+          </Row>
         </div>
 
 
