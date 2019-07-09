@@ -1,10 +1,8 @@
 # SafeSexStats
 
-Planned Parenthood is a great resource for learning about different types of contraceptives and how to 👏 have 👏 sex 👏 safely 👏. 
+Planned Parenthood is a great resource for learning about different types of contraceptives and how to 👏 have 👏 sex 👏 safely 👏.
 
-However, I'm a fan of the saying "two is one and one is none" and wanted an easy way to understand the combined effectiveness of multiple contraceptives in preventing pregnancy, so I built [SafeSexStats](https://jakerockland.com/safesexstats/).
-
-Please note that this website only helps better understand the effectiveness of different contraceptives at preventing pregnancy, but <strong>not</strong> at preventing the contraction of sexually transmitted diseases.
+However, I'm a fan of the saying "two is one and one is none" and wanted an easy way to understand the combined effectiveness of multiple contraceptives in preventing unwanted pregnancy and sexually transmitted diseases, so I built [SafeSexStats](https://jakerockland.com/safesexstats/).
 
 *This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).*
 
