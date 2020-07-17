@@ -19,7 +19,7 @@
     "react-dom": "^16.8.6",
     "react-scripts": "^3.0.1",
     "eslint-utils": "^1.4.1",
-    "lodash": "^4.17.13"
+    "lodash": "^4.17.19"
   },
   "scripts": {
     "predeploy": "yarn run build",
