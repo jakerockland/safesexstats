@@ -16,11 +16,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.color-primary      { color: $primary } /* Primary */
-.color-light        { color: $light } /* Light */
-.color-medium-light { color: $medium-light } /* Medium-light */
-.color-medium-dark  { color: $medium-dark } /* Medium-dark */
-.color-dark         { color: $dark } /* Dark */
+.color-primary       { color: $primary }
+.color-light         { color: $light }
+.color-light-variant { color: $light-variant }
+.color-medium-light  { color: $medium-light }
+.color-medium-dark   { color: $medium-dark }
+.color-dark          { color: $dark }
 
 .content-wrapper {
   flex-direction: column;
@@ -34,7 +35,7 @@ body {
 }
 
 .link:link, .link:visited {
-  color: $dark;
+  color: $light-variant;
 }
 
 .link:hover, .link:active {
