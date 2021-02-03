@@ -101,7 +101,7 @@ export default class YourOdds extends Component {
     return (
       <span>
         <h2>Your contraceptive use should be about <span className="color-medium-dark">{percentOdds}%</span> effective in preventing unwanted pregnancy!</h2>
-        <h2>That means about <span className="color-medium-dark">{fraction.numerator} in every {fraction.denominator}</span> people using your method(s) will get get pregnant each year.</h2>
+        <h2>That means about <span className="color-medium-dark">{fraction[0]} in every {fraction[1]}</span> people using your method(s) will get get pregnant each year.</h2>
       </span>
     );
   }
@@ -147,7 +147,7 @@ export default class YourOdds extends Component {
       </Row>
 
       <Row className="p-3" id="social-sharing">
-        <a href={`https://twitter.com/home?status=My%20pregnancy%20odds%20are%20${fraction.numerator}%20in%20${fraction.denominator}!%20What're%20yours?%0A%0Ahttps%3A//safesexstats.com%0A%0A%23plannedparenthood%20%23safesex`}
+        <a href={`https://twitter.com/home?status=My%20pregnancy%20odds%20are%20${fraction[0]}%20in%20${fraction[1]}!%20What're%20yours?%0A%0Ahttps%3A//safesexstats.com%0A%0A%23plannedparenthood%20%23safesex`}
          className="mx-2 btn btn-outline-dark btn-lg"><i className="fab fa-twitter"></i> Share on Twitter </a>
 
          <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//jakerockland.com/safesexstats"
