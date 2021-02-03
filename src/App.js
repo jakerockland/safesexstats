@@ -64,6 +64,13 @@ class App extends Component {
             <p>
               Want to know what your odds of <Link title="pregnancy" link="https://www.plannedparenthood.org/learn/pregnancy/how-pregnancy-happens" /> are? How about of catching a <Link title="sexually transmitted disease" link="https://www.plannedparenthood.org/learn/stds-hiv-safer-sex" />? Answer the few questions below to find out!
             </p>
+
+            <p>
+              Note: we ask if you use some methods "perfectly" vs. "as well as anyone else". This is because often people do not adhere perfectly to a given birth control method (for example, you may forget to take the pill every once and a while).
+            </p>
+            <p>
+              From <Link title="Planned Parenthood" link="https://www.plannedparenthood.org/learn/birth-control/birth-control-pill"/>: "If you use it perfectly, the pill is 99% effective. But people aren’t perfect and it’s easy to forget or miss pills — so in reality the pill is about 91% effective. That means about 9 out of 100 pill users get pregnant each year.".
+            </p>
           </Row>
         </header>
 
