@@ -13,7 +13,6 @@ export default class YourOdds extends Component {
   };
 
   calulateFraction(probabilty) {
-
     var fraction = probabilty.toFixed(4);
     var len = fraction.toString().length - 2;
 
@@ -74,9 +73,7 @@ export default class YourOdds extends Component {
     );
   }
 
-  renderPregnancyOdds() {
-    const [ percentOdds, numberedOdds, fraction ] = this.calculatePregnancyOdds();
-
+  renderPregnancyOdds(percentOdds, numberedOdds, fraction) {
     if (numberedOdds === 0) {
       if (percentOdds === "0.0") {
         return (
@@ -109,9 +106,7 @@ export default class YourOdds extends Component {
     );
   }
 
-  renderSTDOdds() {
-    const percentageOfTimeCovered = this.calculateSTDOdds();
-
+  renderSTDOdds(percentageOfTimeCovered) {
     if (percentageOfTimeCovered === 0) {
       return (
         <span>
@@ -137,17 +132,18 @@ export default class YourOdds extends Component {
 
   render() {
     // eslint-disable-next-line
-    const [ _, __, fraction ] = this.calculatePregnancyOdds();
+    const [ percentOdds, numberedOdds, fraction ] = this.calculatePregnancyOdds();
+    const percentageOfTimeCovered = this.calculateSTDOdds();
 
     return <Fragment>
       <Row className="p-1">
-        { this.renderPregnancyOdds() }
+        { this.renderPregnancyOdds(percentOdds, numberedOdds, fraction) }
       </Row>
 
       <br/>
 
       <Row className="p-1">
-        { this.renderSTDOdds() }
+        { this.renderSTDOdds(percentageOfTimeCovered) }
       </Row>
 
       <Row className="p-3" id="social-sharing">
