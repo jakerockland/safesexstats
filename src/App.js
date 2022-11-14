@@ -380,7 +380,7 @@ class App extends Component {
         <footer className="content-wrapper p-5 container-fluid">
           <Row className="p-1">
             <p>
-              Made by <Link link="https://jakerockland.com" title="me" /> with <span className="color-medium-dark">♥</span> in Denver.
+              Made by <Link link="https://jakerockland.com" title="me" /> with <span className="color-medium-dark">♥</span> in Colorado.
             </p>
           </Row>
         </footer>
