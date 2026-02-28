@@ -78,30 +78,30 @@ export default class YourOdds extends Component {
       if (percentOdds === "0.0") {
         return (
           <span>
-            <h2>You're not protected at all against unwanted pregnancy.</h2>
-            <h2>If you're looking to have a baby soon, you're on the right track!</h2>
+            <p className="result-text">You're not protected at all against unwanted pregnancy.</p>
+            <p className="result-text">If you're looking to have a baby soon, you're on the right track!</p>
           </span>
         )
       }
 
       return (
         <span>
-          <h2>You're barely protected at all (only <span className="color-medium-dark">{percentOdds}%</span>) against unwanted pregnancy.</h2>
-            <h2>If you're looking to have a baby soon, you're on the right track!</h2>
+          <p className="result-text">You're barely protected at all (only <span className="result-highlight">{percentOdds}%</span>) against unwanted pregnancy.</p>
+          <p className="result-text">If you're looking to have a baby soon, you're on the right track!</p>
         </span>
       )
     }
 
     if (percentOdds >= 99.9) {
       return (
-        <h2><span className="color-medium-dark">Wow!</span> You're over <span className="color-medium-dark">99.9%</span> protected against unwanted pregnancy.</h2>
+        <p className="result-text"><span className="result-highlight">Wow!</span> You're over <span className="result-highlight">99.9%</span> protected against unwanted pregnancy.</p>
       )
     }
 
     return (
       <span>
-        <h2>Your contraceptive use should be about <span className="color-medium-dark">{percentOdds}%</span> effective in preventing unwanted pregnancy!</h2>
-        <h2>That means about <span className="color-medium-dark">{fraction[0]} in every {fraction[1]}</span> people using your method(s) will get get pregnant each year.</h2>
+        <p className="result-text">Your contraceptive use should be about <span className="result-highlight">{percentOdds}%</span> effective in preventing unwanted pregnancy!</p>
+        <p className="result-text">That means about <span className="result-highlight">{fraction[0]} in every {fraction[1]}</span> people using your method(s) will get get pregnant each year.</p>
       </span>
     );
   }
@@ -110,22 +110,22 @@ export default class YourOdds extends Component {
     if (percentageOfTimeCovered === 0) {
       return (
         <span>
-          <h2>When it comes to STDs, it looks like you aren't using methods that protect you at all!</h2>
-          <h2>Hopefully you and your partner(s) are having conversations about STDs.</h2>
+          <p className="result-text">When it comes to STDs, it looks like you aren't using methods that protect you at all!</p>
+          <p className="result-text">Hopefully you and your partner(s) are having conversations about STDs.</p>
         </span>
       )
     }
 
     if (percentageOfTimeCovered === 100) {
       return (
-        <h2><span className="color-medium-dark">Wow!</span> You're using methods that protect you from STDs <span className="color-medium-dark">all the time</span>!</h2>
+        <p className="result-text"><span className="result-highlight">Wow!</span> You're using methods that protect you from STDs <span className="result-highlight">all the time</span>!</p>
       )
     }
 
     return (
       <span>
-        <h2>When it comes to STDs, it looks like you are using methods that protect you about <span className="color-medium-dark">{percentageOfTimeCovered}%</span> of the time.</h2>
-        <h2>Hopefully you and your partner(s) are having conversations about STDs.</h2>
+        <p className="result-text">When it comes to STDs, it looks like you are using methods that protect you about <span className="result-highlight">{percentageOfTimeCovered}%</span> of the time.</p>
+        <p className="result-text">Hopefully you and your partner(s) are having conversations about STDs.</p>
       </span>
     );
   }
@@ -147,10 +147,7 @@ export default class YourOdds extends Component {
       </Row>
 
       <Row className="p-3" id="social-sharing">
-        <a href={`https://twitter.com/home?status=My%20pregnancy%20odds%20are%20${fraction[0]}%20in%20${fraction[1]}!%20What're%20yours?%0A%0Ahttps%3A//safesexstats.com%0A%0A%23plannedparenthood%20%23safesex`}
-         className="mx-2 btn btn-outline-dark btn-lg"><i className="fab fa-twitter"></i> Share on Twitter </a>
-
-         <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//jakerockland.com/safesexstats"
+         <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A//safesexstats.com"
             className="mx-2 btn btn-outline-dark btn-lg"><i className="fab fa-facebook"></i> Share on Facebook</a>
       </Row>
     </Fragment>

@@ -49,18 +49,16 @@ class App extends Component {
     const variant = "outline-dark";
 
     return (
-      <div className="px-5">
+      <div className="px-2 px-md-5">
 
         <header className="content-wrapper p-5 mt-5 container-fluid">
           <Logo className="p-3" />
 
-          <Row className="p-1">
+          <div className="section-card">
             <p>
               <strong><span className="color-dark">Safe</span><span className="color-medium-light">Sex</span><span className="color-dark">Stats</span></strong> makes understanding contraceptive effectiveness easy, by allowing you to understand the combined probabilities of different contraceptive methods, without needing to dive into the math.
             </p>
-          </Row>
 
-          <Row className="p-1">
             <p>
               Want to know what your odds of <Link title="pregnancy" link="https://www.plannedparenthood.org/learn/pregnancy/how-pregnancy-happens" /> are? How about of catching a <Link title="sexually transmitted disease" link="https://www.plannedparenthood.org/learn/stds-hiv-safer-sex" />? Answer the few questions below to find out!
             </p>
@@ -69,318 +67,295 @@ class App extends Component {
               Note: we ask if you use some methods "perfectly" vs. "as well as anyone else". This is because often people do not adhere perfectly to a given birth control method (for example, you may forget to take the pill every once and a while).
             </p>
             <p>
-              From <Link title="Planned Parenthood" link="https://www.plannedparenthood.org/learn/birth-control/birth-control-pill"/>: "If you use it perfectly, the pill is 99% effective. But people aren’t perfect and it’s easy to forget or miss pills — so in reality the pill is about 91% effective. That means about 9 out of 100 pill users get pregnant each year.".
+              From <Link title="Planned Parenthood" link="https://www.plannedparenthood.org/learn/birth-control/birth-control-pill"/>: "If you use it perfectly, the pill is 99% effective. But people aren't perfect and it's easy to forget or miss pills — so in reality the pill is about 91% effective. That means about 9 out of 100 pill users get pregnant each year.".
             </p>
-          </Row>
+          </div>
         </header>
 
         <Container className="content-wrapper">
           <Row className="pb-2">
-            <h1 className="color-dark">Your Protection</h1>
+            <h1 className="section-heading">Your Protection</h1>
           </Row>
 
-          <Row className="p-3" style={{width: "100%"}}>
-            <div className="button-section" style={{width: "100%"}} name="condoms">
+          <div className="section-card" name="condoms">
+            <OneMethodHeader
+              title="condoms"
+              link="https://www.plannedparenthood.org/learn/birth-control/condom"
+            />
 
-              <OneMethodHeader
-                title="condoms"
-                link="https://www.plannedparenthood.org/learn/birth-control/condom"
-              />
+            <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="condomFrequency" defaultValue={0}
+              onChange={this.updateStatistic}>
+              <ToggleButton variant={variant} size="lg" value={0}>
+                Never
+              </ToggleButton>
+              <ToggleButton variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
+              <ToggleButton variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
+              <ToggleButton variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
+              <ToggleButton variant={variant} size="lg" value={100}>Every time</ToggleButton>
+            </ToggleButtonGroup>
 
-              <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="condomFrequency" defaultValue={0}
-                onChange={this.updateStatistic}>
-                <ToggleButton variant={variant} size="lg" value={0}>
-                  Never
-                </ToggleButton>
-                <ToggleButton variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
-                <ToggleButton variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
-                <ToggleButton variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
-                <ToggleButton variant={variant} size="lg" value={100}>Every time</ToggleButton>
-              </ToggleButtonGroup>
+            { (this.state.condomFrequency === 0) ? <Fragment/>
+              : <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="condomUsage" defaultValue={85}
+              onChange={this.updateStatistic}>
+              <ToggleButton variant={variant} size="lg" value={85}>As well as anyone else</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={98}>Perfectly</ToggleButton>
+            </ToggleButtonGroup> }
+          </div>
 
-              { (this.state.condomFrequency === 0) ? <Fragment/>
-                : <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="condomUsage" defaultValue={85}
-                onChange={this.updateStatistic}>
-                <ToggleButton variant={variant} size="lg" value={85}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={98}>Perfectly</ToggleButton>
-              </ToggleButtonGroup> }
-            </div>
-          </Row>
+          <div className="section-card" name="internal-condoms">
+            <OneMethodHeader
+              title="internal condoms (AKA female condoms)"
+              link="https://www.plannedparenthood.org/learn/birth-control/internal-condom"
+            />
 
-          <Row className="p-3" style={{width: "100%"}}>
-            <div className="button-section" style={{width: "100%"}} name="internal-condoms">
+            <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="internalCondomFrequency" defaultValue={0}
+              onChange={this.updateStatistic}>
+              <ToggleButton variant={variant} size="lg" value={0}>
+                Never
+              </ToggleButton>
+              <ToggleButton variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
+              <ToggleButton variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
+              <ToggleButton variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
+              <ToggleButton variant={variant} size="lg" value={100}>Every time</ToggleButton>
+            </ToggleButtonGroup>
 
-              <OneMethodHeader
-                title="internal condoms (AKA female condoms)"
-                link="https://www.plannedparenthood.org/learn/birth-control/internal-condom"
-              />
+            { (this.state.condomFrequency === 0) ? <Fragment/>
+              : <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="internalCondomUsage" defaultValue={79}
+              onChange={this.updateStatistic}>
+              <ToggleButton variant={variant} size="lg" value={79}>As well as anyone else</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={95}>Perfectly</ToggleButton>
+            </ToggleButtonGroup> }
+          </div>
 
-              <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="internalCondomFrequency" defaultValue={0}
-                onChange={this.updateStatistic}>
-                <ToggleButton variant={variant} size="lg" value={0}>
-                  Never
-                </ToggleButton>
-                <ToggleButton variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
-                <ToggleButton variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
-                <ToggleButton variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
-                <ToggleButton variant={variant} size="lg" value={100}>Every time</ToggleButton>
-              </ToggleButtonGroup>
+          <div className="section-card" name="pill">
+            <OneMethodHeader
+              title="the birth control pill"
+              link="https://www.plannedparenthood.org/learn/birth-control/birth-control-pill"
+            />
 
-              { (this.state.condomFrequency === 0) ? <Fragment/>
-                : <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="internalCondomUsage" defaultValue={79}
-                onChange={this.updateStatistic}>
-                <ToggleButton variant={variant} size="lg" value={79}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={95}>Perfectly</ToggleButton>
-              </ToggleButtonGroup> }
-            </div>
-          </Row>
+            <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="pillFrequency" defaultValue={0}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
+            </ToggleButtonGroup>
 
-          <Row className="p-3" style={{width: "100%"}}>
-            <div className="button-section" style={{width: "100%"}} name="pill">
+            { (this.state.pillFrequency === 0) ? <Fragment/>
+              : <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="pillUsage" defaultValue={91}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={91}>As well as anyone else</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
+            </ToggleButtonGroup> }
+          </div>
 
-              <OneMethodHeader
-                title="the birth control pill"
-                link="https://www.plannedparenthood.org/learn/birth-control/birth-control-pill"
-              />
+          <div className="section-card" name="iud-implant">
+            <TwoMethodHeader
+              titleA="an IUD"
+              linkA="https://www.plannedparenthood.org/learn/birth-control/iud"
+              titleB="the birth control implant"
+              linkB="https://www.plannedparenthood.org/learn/birth-control/birth-control-implant-implanon"
+            />
+            <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="iudImplant" defaultValue={0}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={99}>Yay</ToggleButton>
+            </ToggleButtonGroup>
+          </div>
 
-              <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="pillFrequency" defaultValue={0}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
-              </ToggleButtonGroup>
+          <div className="section-card" name="ring">
+            <OneMethodHeader
+              title="the birth control ring"
+              link="https://www.plannedparenthood.org/learn/birth-control/birth-control-vaginal-ring-nuvaring"
+            />
+            <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="ringFrequency" defaultValue={0}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
+            </ToggleButtonGroup>
 
-              { (this.state.pillFrequency === 0) ? <Fragment/>
-                : <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="pillUsage" defaultValue={91}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={91}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
-              </ToggleButtonGroup> }
-            </div>
-          </Row>
+            { (this.state.ringFrequency === 0) ? <Fragment/>
+              : <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="ringUsage" defaultValue={91}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={91}>As well as anyone else</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
+            </ToggleButtonGroup> }
+          </div>
 
-          <Row className="p-3" style={{width: "100%"}}>
-            <div className="button-section" style={{width: "100%"}} name="iud-implant">
-              <TwoMethodHeader
-                titleA="an IUD"
-                linkA="https://www.plannedparenthood.org/learn/birth-control/iud"
-                titleB="the birth control implant"
-                linkB="https://www.plannedparenthood.org/learn/birth-control/birth-control-implant-implanon"
-              />
-              <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="iudImplant" defaultValue={0}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={99}>Yay</ToggleButton>
-              </ToggleButtonGroup>
-            </div>
-          </Row>
+          <div className="section-card" name="shot">
+            <OneMethodHeader
+              title="the birth control shot"
+              link="https://www.plannedparenthood.org/learn/birth-control/birth-control-shot"
+            />
+            <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="shotFrequency" defaultValue={0}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
+            </ToggleButtonGroup>
 
-          <Row className="p-3" style={{width: "100%"}}>
-            <div className="button-section" style={{width: "100%"}} name="ring">
-              <OneMethodHeader
-                title="the birth control ring"
-                link="https://www.plannedparenthood.org/learn/birth-control/birth-control-vaginal-ring-nuvaring"
-              />
-              <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="ringFrequency" defaultValue={0}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
-              </ToggleButtonGroup>
+            { (this.state.shotFrequency === 0) ? <Fragment/>
+              : <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="shotUsage" defaultValue={94}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={94}>As well as anyone else</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
+            </ToggleButtonGroup> }
+          </div>
 
-              { (this.state.ringFrequency === 0) ? <Fragment/>
-                : <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="ringUsage" defaultValue={91}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={91}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
-              </ToggleButtonGroup> }
-            </div>
-          </Row>
+          <div className="section-card" name="pull-out">
+            <OneMethodHeader
+              title="the pull out method"
+              link="https://www.plannedparenthood.org/learn/birth-control/withdrawal-pull-out-method"
+            />
+            <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="pullOutFrequency" defaultValue={0}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={0}>Never</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={100}>Every time</ToggleButton>
+            </ToggleButtonGroup>
 
-          <Row className="p-3" style={{width: "100%"}}>
-            <div className="button-section" style={{width: "100%"}} name="shot">
-              <OneMethodHeader
-                title="the birth control shot"
-                link="https://www.plannedparenthood.org/learn/birth-control/birth-control-shot"
-              />
-              <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="shotFrequency" defaultValue={0}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
-              </ToggleButtonGroup>
+            { (this.state.pullOutFrequency === 0) ? <Fragment/>
+              : <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="pullOutUsage" defaultValue={78}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={78}>As well as anyone else</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={94}>Perfectly</ToggleButton>
+            </ToggleButtonGroup> }
+          </div>
 
-              { (this.state.shotFrequency === 0) ? <Fragment/>
-                : <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="shotUsage" defaultValue={94}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={94}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
-              </ToggleButtonGroup> }
-            </div>
-          </Row>
+          <div className="section-card" name="spermicide">
+            <OneMethodHeader
+              title="spermicide"
+              link="https://www.plannedparenthood.org/learn/birth-control/spermicide"
+            />
+            <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="spermicideFrequency" defaultValue={0}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={0}>Never</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={100}>Every time</ToggleButton>
+            </ToggleButtonGroup>
 
-          <Row className="p-3" style={{width: "100%"}}>
-            <div className="button-section" style={{width: "100%"}} name="pull-out">
-              <OneMethodHeader
-                title="the pull out method"
-                link="https://www.plannedparenthood.org/learn/birth-control/withdrawal-pull-out-method"
-              />
-              <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="pullOutFrequency" defaultValue={0}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={0}>Never</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={100}>Every time</ToggleButton>
-              </ToggleButtonGroup>
+            { (this.state.spermicideFrequency === 0) ? <Fragment/>
+              : <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="spermicideUsage" defaultValue={72}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={72}>As well as anyone else</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={82}>Perfectly</ToggleButton>
+            </ToggleButtonGroup> }
+          </div>
 
-              { (this.state.pullOutFrequency === 0) ? <Fragment/>
-                : <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="pullOutUsage" defaultValue={78}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={78}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={94}>Perfectly</ToggleButton>
-              </ToggleButtonGroup> }
-            </div>
-          </Row>
-
-          <Row className="p-3" style={{width: "100%"}}>
-            <div className="button-section" style={{width: "100%"}} name="spermicide">
-              <OneMethodHeader
-                title="spermicide"
-                link="https://www.plannedparenthood.org/learn/birth-control/spermicide"
-              />
-              <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="spermicideFrequency" defaultValue={0}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={0}>Never</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={100}>Every time</ToggleButton>
-              </ToggleButtonGroup>
-
-              { (this.state.spermicideFrequency === 0) ? <Fragment/>
-                : <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="spermicideUsage" defaultValue={72}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={72}>As well as anyone else</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={82}>Perfectly</ToggleButton>
-              </ToggleButtonGroup> }
-            </div>
-          </Row>
-
-          <Row className="p-3" style={{width: "100%"}}>
-            <div className="button-section" style={{width: "100%"}} name="fam-methods">
-              <OneMethodHeader
-                title="fertility awareness methods (FAMs)"
-                link="https://www.plannedparenthood.org/learn/birth-control/fertility-awareness"
-              />
-              <ToggleButtonGroup
-                type="radio" as={Row} className="py-1" style={{width: "100%"}}
-                name="famMethods" defaultValue={0}
-                onChange={this.updateStatistic}>
-                <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
-                <ToggleButton  variant={variant} size="lg" value={76}>Yay</ToggleButton>
-              </ToggleButtonGroup>
-            </div>
-          </Row>
+          <div className="section-card" name="fam-methods">
+            <OneMethodHeader
+              title="fertility awareness methods (FAMs)"
+              link="https://www.plannedparenthood.org/learn/birth-control/fertility-awareness"
+            />
+            <ToggleButtonGroup
+              type="radio" as={Row} className="py-1"
+              name="famMethods" defaultValue={0}
+              onChange={this.updateStatistic}>
+              <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
+              <ToggleButton  variant={variant} size="lg" value={76}>Yay</ToggleButton>
+            </ToggleButtonGroup>
+          </div>
 
         </Container>
 
 
         <div className="content-wrapper p-5 container-fluid">
           <Row className="pb-2">
-            <h1 className="color-dark">Your Odds</h1>
+            <h1 className="section-heading">Your Odds</h1>
           </Row>
 
-          <YourOdds
-            condomUsage={ this.state.condomUsage }
-            condomFrequency={ this.state.condomFrequency }
-            internalCondomUsage={ this.state.internalCondomUsage }
-            internalCondomFrequency={ this.state.internalCondomFrequency }
-            pillUsage={ this.state.pillUsage }
-            pillFrequency={ this.state.pillFrequency }
-            iudImplant={ this.state.iudImplant }
-            ringUsage={ this.state.ringUsage }
-            ringFrequency={ this.state.ringFrequency }
-            shotUsage={ this.state.shotUsage }
-            shotFrequency={ this.state.shotFrequency }
-            pullOutUsage={ this.state.pullOutUsage }
-            pullOutFrequency={ this.state.pullOutFrequency }
-            spermicideUsage={ this.state.spermicideUsage }
-            spermicideFrequency={ this.state.spermicideFrequency }
-            famMethods={ this.state.famMethods }
-          />
+          <div className="results-section">
+            <YourOdds
+              condomUsage={ this.state.condomUsage }
+              condomFrequency={ this.state.condomFrequency }
+              internalCondomUsage={ this.state.internalCondomUsage }
+              internalCondomFrequency={ this.state.internalCondomFrequency }
+              pillUsage={ this.state.pillUsage }
+              pillFrequency={ this.state.pillFrequency }
+              iudImplant={ this.state.iudImplant }
+              ringUsage={ this.state.ringUsage }
+              ringFrequency={ this.state.ringFrequency }
+              shotUsage={ this.state.shotUsage }
+              shotFrequency={ this.state.shotFrequency }
+              pullOutUsage={ this.state.pullOutUsage }
+              pullOutFrequency={ this.state.pullOutFrequency }
+              spermicideUsage={ this.state.spermicideUsage }
+              spermicideFrequency={ this.state.spermicideFrequency }
+              famMethods={ this.state.famMethods }
+            />
+          </div>
         </div>
 
 
         <div className="content-wrapper p-5 container-fluid">
           <Row className="pb-2">
-            <h1 className="color-dark">Why <strong><span className="color-dark">Safe</span><span className="color-medium-light">Sex</span><span className="color-dark">Stats</span></strong>?</h1>
+            <h1 className="section-heading">Why <strong><span className="color-dark">Safe</span><span className="color-medium-light">Sex</span><span className="color-dark">Stats</span></strong>?</h1>
           </Row>
 
-          <Row className="p-1">
+          <div className="section-card">
             <p>
-              <Link title="Planned Parenthood" link="https://www.plannedparenthood.org/learn/birth-control"/> is a great resource for learning about different types of contraceptives and how to 👏 have 👏 sex 👏 safely 👏.
+              <Link title="Planned Parenthood" link="https://www.plannedparenthood.org/learn/birth-control"/> is a great resource for learning about different types of contraceptives and how to have sex safely.
             </p>
-          </Row>
 
-          <Row className="p-1">
             <p>
               However, I'm a fan of the saying "two is one and one is none" and wanted an easy way to understand the combined effectiveness of multiple contraceptives in preventing unwanted pregnancy and sexually transmitted diseases, so I built <strong><span className="color-dark">Safe</span><span className="color-medium-light">Sex</span><span className="color-dark">Stats</span></strong>.
             </p>
-          </Row>
+          </div>
         </div>
 
 
         <div className="content-wrapper p-5 container-fluid">
           <Row className="pb-2">
-            <h1 className="color-dark">Want More?</h1>
+            <h1 className="section-heading">Want More?</h1>
           </Row>
 
-          <Row className="p-1">
+          <div className="section-card">
             <p>
               For a better understanding of the statistics at work behind this calculator, check out this great <Link title="Scarleteen article" link="https://www.scarleteen.com/article/sexual_health/the_buddy_system_effectiveness_rates_for_backing_up_your_birth_control_with_a_"/> or this <Link title="Khan Academy lesson" link="https://www.khanacademy.org/math/ap-statistics/probability-ap/probability-multiplication-rule/v/compound-probability-of-independent-events"/> on compound probabilities.
             </p>
-          </Row>
 
-          <Row className="p-1">
             <p>
-              Do you use a <Link title="birth control method" link="https://www.plannedparenthood.org/learn/birth-control"/> that I haven't included here and would like to see it on the site? Hit me up on <Link title="Twitter" link="https://twitter.com/jakerockland"/> or open <Link title="an issue" link="https://github.com/jakerockland/safesexstats/issues"/> on Github.
+              Do you use a <Link title="birth control method" link="https://www.plannedparenthood.org/learn/birth-control"/> that I haven't included here and would like to see it on the site? Open <Link title="an issue" link="https://github.com/jakerockland/safesexstats/issues"/> on Github.
             </p>
-          </Row>
+          </div>
         </div>
 
 
         <footer className="content-wrapper p-5 container-fluid">
           <Row className="p-1">
             <p>
-              Made by <Link link="https://jakerockland.com" title="me" /> with <span className="color-medium-dark">♥</span> in Colorado.
+              <Link link="https://github.com/jakerockland/safesexstats" title="SafeSexStats" /> is open source.
             </p>
           </Row>
         </footer>

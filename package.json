@@ -1,7 +1,7 @@
 {
   "name": "safesexstats",
   "description": "A simple web app for making the statistics behind safe sex easier to understand.",
-  "homepage": "http://safesexstats.com",
+  "homepage": "https://safesexstats.com",
   "author": {
     "name": "Jake Rockland",
     "email": "jakerockland@gmail.com",
@@ -12,14 +12,13 @@
   "private": true,
   "dependencies": {
     "bootstrap": "^4.3.1",
-    "eslint-utils": "^1.4.1",
     "gh-pages": "^2.0.1",
     "lodash": "^4.17.21",
-    "node-sass": "^4.13.1",
     "react": "^16.8.6",
     "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
-    "react-scripts": "^4.0.1"
+    "react-scripts": "^5.0.1",
+    "sass": "^1.62.0"
   },
   "scripts": {
     "predeploy": "yarn run build",

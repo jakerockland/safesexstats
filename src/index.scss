@@ -1,4 +1,4 @@
-@import url("https://rsms.me/inter/inter-ui.css");
+@import url("https://rsms.me/inter/inter.css");
 
 @import './styles/constants.scss';
 @import '~bootstrap/scss/bootstrap.scss';
@@ -7,7 +7,8 @@ body {
   margin: 0;
   padding: 0;
 
-  font-family: InterUI, "Helvetica Neue", sans-serif;
+  font-family: "Inter", "InterUI", "Helvetica Neue", sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   text-align: center;
 
   background-color: $primary;
@@ -30,19 +31,173 @@ body {
   justify-content: center;
   background-color: $primary;
 
-  font-size: calc(10px + 2vmin);
+  font-size: 1.05rem;
   color: $medium-light;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .link:link, .link:visited {
   color: $light-variant;
+  text-decoration: underline;
+  text-decoration-color: rgba($light-variant, 0.3);
+  text-underline-offset: 2px;
+  transition: color $transition-speed, text-decoration-color $transition-speed;
 }
 
 .link:hover, .link:active {
   color: $light;
+  text-decoration-color: $light;
 }
 
 .logo {
   font-weight: bolder;
-  font-size: calc(40px + 2vmin);
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  display: block;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba($dark, 0.5);
+  font-weight: 500;
+  margin-top: 0.25rem;
+}
+
+// Card system
+.section-card {
+  background: $card-bg;
+  border-radius: $border-radius;
+  box-shadow: $card-shadow;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.25rem;
+  text-align: left;
+  width: 100%;
+  transition: box-shadow $transition-speed;
+  animation: fadeInUp 0.4s ease-out both;
+
+  &:hover {
+    box-shadow: 0 4px 20px rgba(82, 20, 76, 0.12);
+  }
+}
+
+// Button overrides
+.btn-outline-dark {
+  border-radius: $border-radius !important;
+  transition: all $transition-speed ease !important;
+
+  &:active, &.active {
+    background-color: $dark !important;
+    border-color: $dark !important;
+    color: #fff !important;
+    box-shadow: 0 2px 8px rgba(82, 20, 76, 0.25) !important;
+  }
+}
+
+// Results section
+.results-section {
+  background: linear-gradient(135deg, rgba($medium-dark, 0.05), rgba($dark, 0.05));
+  border-left: 4px solid $medium-dark;
+  border-radius: $border-radius;
+  padding: 1.5rem 2rem;
+  margin-bottom: 1.25rem;
+  width: 100%;
+}
+
+// Result text
+.result-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+}
+
+.result-highlight {
+  color: $medium-dark;
+  font-weight: 600;
+}
+
+// Section headings
+.section-heading {
+  color: $dark;
+  position: relative;
+  display: inline-block;
+  margin-bottom: 1rem;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, $medium-dark, $medium-light);
+    border-radius: 2px;
+  }
+}
+
+// Method headers
+.method-header {
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: $dark;
+}
+
+// Entrance animation
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .section-card {
+    animation: none;
+  }
+}
+
+// Responsive: tablet
+@media (max-width: 768px) {
+  .content-wrapper {
+    font-size: 0.95rem;
+  }
+
+  .section-card {
+    padding: 1rem 1.25rem;
+  }
+
+  .btn-outline-dark {
+    font-size: 0.85rem !important;
+  }
+
+  .btn-group, .btn-group-toggle {
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+}
+
+// Responsive: mobile
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.8rem;
+  }
+
+  .section-heading {
+    font-size: 1.25rem;
+  }
+
+  .section-card {
+    padding: 0.85rem 1rem;
+  }
+
+  .result-text {
+    font-size: 1rem;
+  }
 }
