@@ -84,6 +84,19 @@ body {
   }
 }
 
+// Callout box
+.callout {
+  background: rgba($dark, 0.04);
+  border-left: 4px solid $medium-dark;
+  border-radius: 0 $border-radius $border-radius 0;
+  padding: 1rem 1.25rem;
+  margin-top: 0.5rem;
+
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
 // Button group layout — force each group onto its own row
 .section-card .btn-group {
   display: flex;
