@@ -84,6 +84,11 @@ body {
   }
 }
 
+// Button group layout — force each group onto its own row
+.section-card .btn-group {
+  display: flex;
+}
+
 // Button overrides
 .btn-outline-dark {
   border-radius: $border-radius !important;
