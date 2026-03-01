@@ -36,13 +36,8 @@ class App extends Component {
     };
   }
 
-  updateStatistic = (value, event) => {
-    let stat = event.target.name;
-
-    let _state = {};
-    _state[stat] = value;
-
-    this.setState(_state);
+  updateStatistic = (stat) => (value) => {
+    this.setState({ [stat]: value });
   }
 
   render() {
@@ -88,23 +83,23 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="condomFrequency" defaultValue={0}
-              onChange={this.updateStatistic}>
-              <ToggleButton variant={variant} size="lg" value={0}>
+              onChange={this.updateStatistic('condomFrequency')}>
+              <ToggleButton id="condom-freq-0" variant={variant} size="lg" value={0}>
                 Never
               </ToggleButton>
-              <ToggleButton variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
-              <ToggleButton variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
-              <ToggleButton variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
-              <ToggleButton variant={variant} size="lg" value={100}>Every time</ToggleButton>
+              <ToggleButton id="condom-freq-25" variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
+              <ToggleButton id="condom-freq-50" variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
+              <ToggleButton id="condom-freq-75" variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
+              <ToggleButton id="condom-freq-100" variant={variant} size="lg" value={100}>Every time</ToggleButton>
             </ToggleButtonGroup>
 
             { (this.state.condomFrequency === 0) ? <Fragment/>
               : <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="condomUsage" defaultValue={85}
-              onChange={this.updateStatistic}>
-              <ToggleButton variant={variant} size="lg" value={85}>As well as anyone else</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={98}>Perfectly</ToggleButton>
+              onChange={this.updateStatistic('condomUsage')}>
+              <ToggleButton id="condom-usage-85" variant={variant} size="lg" value={85}>As well as anyone else</ToggleButton>
+              <ToggleButton id="condom-usage-98" variant={variant} size="lg" value={98}>Perfectly</ToggleButton>
             </ToggleButtonGroup> }
           </div>
 
@@ -117,23 +112,23 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="internalCondomFrequency" defaultValue={0}
-              onChange={this.updateStatistic}>
-              <ToggleButton variant={variant} size="lg" value={0}>
+              onChange={this.updateStatistic('internalCondomFrequency')}>
+              <ToggleButton id="internal-condom-freq-0" variant={variant} size="lg" value={0}>
                 Never
               </ToggleButton>
-              <ToggleButton variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
-              <ToggleButton variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
-              <ToggleButton variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
-              <ToggleButton variant={variant} size="lg" value={100}>Every time</ToggleButton>
+              <ToggleButton id="internal-condom-freq-25" variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
+              <ToggleButton id="internal-condom-freq-50" variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
+              <ToggleButton id="internal-condom-freq-75" variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
+              <ToggleButton id="internal-condom-freq-100" variant={variant} size="lg" value={100}>Every time</ToggleButton>
             </ToggleButtonGroup>
 
             { (this.state.condomFrequency === 0) ? <Fragment/>
               : <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="internalCondomUsage" defaultValue={79}
-              onChange={this.updateStatistic}>
-              <ToggleButton variant={variant} size="lg" value={79}>As well as anyone else</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={95}>Perfectly</ToggleButton>
+              onChange={this.updateStatistic('internalCondomUsage')}>
+              <ToggleButton id="internal-condom-usage-79" variant={variant} size="lg" value={79}>As well as anyone else</ToggleButton>
+              <ToggleButton id="internal-condom-usage-95" variant={variant} size="lg" value={95}>Perfectly</ToggleButton>
             </ToggleButtonGroup> }
           </div>
 
@@ -146,18 +141,18 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="pillFrequency" defaultValue={0}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
+              onChange={this.updateStatistic('pillFrequency')}>
+              <ToggleButton id="pill-freq-0" variant={variant} size="lg" value={0}>Nay</ToggleButton>
+              <ToggleButton id="pill-freq-100" variant={variant} size="lg" value={100}>Yay</ToggleButton>
             </ToggleButtonGroup>
 
             { (this.state.pillFrequency === 0) ? <Fragment/>
               : <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="pillUsage" defaultValue={91}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={91}>As well as anyone else</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
+              onChange={this.updateStatistic('pillUsage')}>
+              <ToggleButton id="pill-usage-91" variant={variant} size="lg" value={91}>As well as anyone else</ToggleButton>
+              <ToggleButton id="pill-usage-99" variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
             </ToggleButtonGroup> }
           </div>
 
@@ -171,9 +166,9 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="iudImplant" defaultValue={0}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={99}>Yay</ToggleButton>
+              onChange={this.updateStatistic('iudImplant')}>
+              <ToggleButton id="iud-implant-0" variant={variant} size="lg" value={0}>Nay</ToggleButton>
+              <ToggleButton id="iud-implant-99" variant={variant} size="lg" value={99}>Yay</ToggleButton>
             </ToggleButtonGroup>
           </div>
 
@@ -185,18 +180,18 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="ringFrequency" defaultValue={0}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
+              onChange={this.updateStatistic('ringFrequency')}>
+              <ToggleButton id="ring-freq-0" variant={variant} size="lg" value={0}>Nay</ToggleButton>
+              <ToggleButton id="ring-freq-100" variant={variant} size="lg" value={100}>Yay</ToggleButton>
             </ToggleButtonGroup>
 
             { (this.state.ringFrequency === 0) ? <Fragment/>
               : <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="ringUsage" defaultValue={91}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={91}>As well as anyone else</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
+              onChange={this.updateStatistic('ringUsage')}>
+              <ToggleButton id="ring-usage-91" variant={variant} size="lg" value={91}>As well as anyone else</ToggleButton>
+              <ToggleButton id="ring-usage-99" variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
             </ToggleButtonGroup> }
           </div>
 
@@ -208,18 +203,18 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="shotFrequency" defaultValue={0}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={100}>Yay</ToggleButton>
+              onChange={this.updateStatistic('shotFrequency')}>
+              <ToggleButton id="shot-freq-0" variant={variant} size="lg" value={0}>Nay</ToggleButton>
+              <ToggleButton id="shot-freq-100" variant={variant} size="lg" value={100}>Yay</ToggleButton>
             </ToggleButtonGroup>
 
             { (this.state.shotFrequency === 0) ? <Fragment/>
               : <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="shotUsage" defaultValue={94}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={94}>As well as anyone else</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
+              onChange={this.updateStatistic('shotUsage')}>
+              <ToggleButton id="shot-usage-94" variant={variant} size="lg" value={94}>As well as anyone else</ToggleButton>
+              <ToggleButton id="shot-usage-99" variant={variant} size="lg" value={99}>Perfectly</ToggleButton>
             </ToggleButtonGroup> }
           </div>
 
@@ -231,21 +226,21 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="pullOutFrequency" defaultValue={0}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={0}>Never</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={100}>Every time</ToggleButton>
+              onChange={this.updateStatistic('pullOutFrequency')}>
+              <ToggleButton id="pullout-freq-0" variant={variant} size="lg" value={0}>Never</ToggleButton>
+              <ToggleButton id="pullout-freq-25" variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
+              <ToggleButton id="pullout-freq-50" variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
+              <ToggleButton id="pullout-freq-75" variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
+              <ToggleButton id="pullout-freq-100" variant={variant} size="lg" value={100}>Every time</ToggleButton>
             </ToggleButtonGroup>
 
             { (this.state.pullOutFrequency === 0) ? <Fragment/>
               : <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="pullOutUsage" defaultValue={78}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={78}>As well as anyone else</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={94}>Perfectly</ToggleButton>
+              onChange={this.updateStatistic('pullOutUsage')}>
+              <ToggleButton id="pullout-usage-78" variant={variant} size="lg" value={78}>As well as anyone else</ToggleButton>
+              <ToggleButton id="pullout-usage-94" variant={variant} size="lg" value={94}>Perfectly</ToggleButton>
             </ToggleButtonGroup> }
           </div>
 
@@ -257,21 +252,21 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="spermicideFrequency" defaultValue={0}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={0}>Never</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={100}>Every time</ToggleButton>
+              onChange={this.updateStatistic('spermicideFrequency')}>
+              <ToggleButton id="spermicide-freq-0" variant={variant} size="lg" value={0}>Never</ToggleButton>
+              <ToggleButton id="spermicide-freq-25" variant={variant} size="lg" value={25}>1/4 of the time</ToggleButton>
+              <ToggleButton id="spermicide-freq-50" variant={variant} size="lg" value={50}>Half of the time</ToggleButton>
+              <ToggleButton id="spermicide-freq-75" variant={variant} size="lg" value={75}>3/4 of the time</ToggleButton>
+              <ToggleButton id="spermicide-freq-100" variant={variant} size="lg" value={100}>Every time</ToggleButton>
             </ToggleButtonGroup>
 
             { (this.state.spermicideFrequency === 0) ? <Fragment/>
               : <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="spermicideUsage" defaultValue={72}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={72}>As well as anyone else</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={82}>Perfectly</ToggleButton>
+              onChange={this.updateStatistic('spermicideUsage')}>
+              <ToggleButton id="spermicide-usage-72" variant={variant} size="lg" value={72}>As well as anyone else</ToggleButton>
+              <ToggleButton id="spermicide-usage-82" variant={variant} size="lg" value={82}>Perfectly</ToggleButton>
             </ToggleButtonGroup> }
           </div>
 
@@ -283,9 +278,10 @@ class App extends Component {
             <ToggleButtonGroup
               type="radio" as={Row} className="py-1"
               name="famMethods" defaultValue={0}
-              onChange={this.updateStatistic}>
-              <ToggleButton  variant={variant} size="lg" value={0}>Nay</ToggleButton>
-              <ToggleButton  variant={variant} size="lg" value={76}>Yay</ToggleButton>
+              onChange={this.updateStatistic('famMethods')}>
+              <ToggleButton id="fam-0" variant={variant} size="lg" value={0}>Nay</ToggleButton>
+              <ToggleButton id="fam-76" variant={variant} size="lg" value={76}>Yay</ToggleButton>
+              <ToggleButton id="fam-98" variant={variant} size="lg" value={98}>Perfectly</ToggleButton>
             </ToggleButtonGroup>
           </div>
 
